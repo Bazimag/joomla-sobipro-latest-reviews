@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build install package and release notes
+        run: |
+          set -e
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+          zip -r "mod_sobipro_latest_reviews_${VERSION}.zip" \
+            mod_sobipro_latest_reviews.php \
+            mod_sobipro_latest_reviews.xml \
+            helper.php \
+            tmpl \
+            asset \
+            language \
+            CHANGELOG.md \
+            README.md \
+            LICENSE \
+            index.html
+
+          python3 - << PY
+          import os, re, sys
+          version = os.environ["VERSION"]
+          text = open("CHANGELOG.md", encoding="utf-8").read()
+          pattern = rf"(## \[{re.escape(version)}\][\s\S]*?)(?=\n## \[|\Z)"
+          match = re.search(pattern, text)
+          if not match:
+              sys.stderr.write("No CHANGELOG section found for [%s]\n" % version)
+              sys.exit(1)
+          notes = match.group(1).strip() + "\n"
+          open("release-notes.md", "w", encoding="utf-8").write(notes)
+          PY
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: mod_sobipro_latest_reviews_${{ env.VERSION }}.zip
+          generate_release_notes: false
+          body_path: release-notes.md
