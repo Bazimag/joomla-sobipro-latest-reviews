@@ -1,0 +1,26 @@
+.mod-sobipro-latest-reviews .splr-item {
+	border-bottom: 1px solid #ccc;
+	overflow: auto;
+	direction: rtl;
+	text-align: justify;
+}
+.mod-sobipro-latest-reviews .splr-item > div {
+	padding: 5px;
+}
+.mod-sobipro-latest-reviews .splr-item > div.clearfix {
+	padding: 0;
+}
+.mod-sobipro-latest-reviews .splr-item div.datetime {
+	text-align: left;
+	direction: ltr;
+}
+.mod-sobipro-latest-reviews .splr-item p.kmt-author {
+	line-height: normal;
+	margin: 0;
+	font-weight: bold;
+}
+.mod-sobipro-latest-reviews .splr-item a.article-title {
+	font-size: 11px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
