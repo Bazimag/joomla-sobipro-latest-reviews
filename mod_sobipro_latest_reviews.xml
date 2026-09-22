@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+	<name>MOD_SOBIPRO_LATEST_REVIEWS</name>
+	<author>F.Yousefi</author>
+	<authorEmail>asiasunnet@gmail.com</authorEmail>
+	<authorUrl>https://www.asiasun.ir</authorUrl>
+	<creationDate>2026-09-22</creationDate>
+	<copyright>(C) 2026 AsiaSun.ir, Pvt. Ltd. All rights reserved</copyright>
+	<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
+	<version>2.0.0</version>
+	<description>MOD_SOBIPRO_LATEST_REVIEWS_XML_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_sobipro_latest_reviews">mod_sobipro_latest_reviews.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>CHANGELOG.md</filename>
+		<filename>README.md</filename>
+		<filename>LICENSE</filename>
+		<folder>tmpl</folder>
+		<folder>asset</folder>
+		<folder>language</folder>
+	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_sobipro_latest_reviews.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_sobipro_latest_reviews.sys.ini</language>
+		<language tag="fa-IR">language/fa-IR/fa-IR.mod_sobipro_latest_reviews.ini</language>
+		<language tag="fa-IR">language/fa-IR/fa-IR.mod_sobipro_latest_reviews.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="userName" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_USER_NAME" description="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_SHOW_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="userWhat" type="radio" class="btn-group" default="0" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_USER_WHAT">
+					<option value="0">MOD_SOBIPRO_LATEST_REVIEWS_USERNAME</option>
+					<option value="1">MOD_SOBIPRO_LATEST_REVIEWS_NAME</option>
+				</field>
+				<field name="userFontSize" type="list" default="0" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_USER_FONT">
+					<option value="0">MOD_SOBIPRO_LATEST_REVIEWS_SIZE_XS</option>
+					<option value="1">MOD_SOBIPRO_LATEST_REVIEWS_SIZE_SM</option>
+					<option value="2">MOD_SOBIPRO_LATEST_REVIEWS_SIZE_MD</option>
+					<option value="3">MOD_SOBIPRO_LATEST_REVIEWS_SIZE_LG</option>
+				</field>
+				<field name="articleTitle" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_ARTICLE_TITLE" description="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_SHOW_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="articleTitleWordsCount" type="number" default="5" filter="integer" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_TITLE_WORDS" />
+				<field name="avatar" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_AVATAR" description="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_SHOW_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="avatarSize" type="list" default="0" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_AVATAR_SIZE">
+					<option value="0">MOD_SOBIPRO_LATEST_REVIEWS_AVATAR_20</option>
+					<option value="1">MOD_SOBIPRO_LATEST_REVIEWS_AVATAR_30</option>
+					<option value="2">MOD_SOBIPRO_LATEST_REVIEWS_AVATAR_40</option>
+					<option value="3">MOD_SOBIPRO_LATEST_REVIEWS_AVATAR_50</option>
+				</field>
+				<field name="reviewWordsCount" type="number" default="20" filter="integer" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_REVIEW_WORDS" />
+				<field name="reviewsCount" type="number" default="3" filter="integer" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_REVIEWS_COUNT" />
+				<field name="starsShow" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_STARS" description="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_SHOW_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="showTime" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_TIME" description="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_SHOW_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="title_field_id" type="text" default="1" filter="integer" label="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_TITLE_FID" description="MOD_SOBIPRO_LATEST_REVIEWS_FIELD_TITLE_FID_DESC" />
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field name="moduleclass_sfx" type="textarea" rows="3" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field name="cache" type="list" default="1" filter="integer" label="COM_MODULES_FIELD_CACHING_LABEL">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field name="cache_time" type="number" default="900" filter="integer" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" />
+				<field name="cachemode" type="hidden" default="static" />
+			</fieldset>
+		</fields>
+	</config>
+
+	<updateservers>
+		<server type="extension" priority="1" name="SobiPro Latest Reviews Updates">https://www.asiasun.ir/updates/mod_sobipro_latest_reviews.xml</server>
+	</updateservers>
+</extension>
